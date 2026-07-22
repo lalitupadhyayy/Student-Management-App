@@ -23,4 +23,5 @@ class StudentViewModel(
     fun getAllStudents() : List<Student>{
         return repository.getAllStudents()
     }
+
 }
