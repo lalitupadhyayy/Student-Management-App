@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.example.studentmanagementapp.model.Student
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface StudentDao {
@@ -20,5 +21,5 @@ interface StudentDao {
     fun updateStudent(student: Student)
 
     @Query("SELECT * FROM Student")
-    fun getAllStudents() : List<Student>
+    fun getAllStudents(): Flow<List<Student>>
 }
