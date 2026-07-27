@@ -1,20 +1,15 @@
 package com.example.studentmanagementapp.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.studentmanagementapp.model.Student
 import com.example.studentmanagementapp.repository.StudentRepository
-import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.Flow
 
 class StudentViewModel(
     private val repository : StudentRepository
 ) : ViewModel(){
 
-    val students = repository.getAllStudents().stateIn(
-        scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5000),
-        initialValue = emptyList()
-    )
+
 
     fun insertStudent(student: Student){
         repository.insertStudent(student)
@@ -28,7 +23,7 @@ class StudentViewModel(
         repository.updateStudent(student)
     }
 
-    fun getAllStudents() : List<Student>{
+    fun getAllStudents(): Flow<List<Student>> {
         return repository.getAllStudents()
     }
 

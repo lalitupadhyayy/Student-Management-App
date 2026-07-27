@@ -20,6 +20,6 @@ interface StudentDao {
     @Update
     fun updateStudent(student: Student)
 
-    @Query("SELECT * FROM Student")
+    @Query("SELECT * FROM student_table")
     fun getAllStudents(): Flow<List<Student>>
 }
