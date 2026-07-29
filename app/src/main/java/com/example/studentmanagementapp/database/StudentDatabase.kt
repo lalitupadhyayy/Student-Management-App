@@ -23,11 +23,13 @@ abstract class StudentDatabase : RoomDatabase() {
 
                 synchronized(this){
                     if (Instance == null){
-                        Room.databaseBuilder(
-                            context,
+                       Instance =  Room.databaseBuilder(
+                            context.applicationContext,
                             StudentDatabase::class.java,
                             "Student_Database"
-                        ).build()
+                        )
+                           .allowMainThreadQueries()
+                           .build()
                     }
                 }
             }
