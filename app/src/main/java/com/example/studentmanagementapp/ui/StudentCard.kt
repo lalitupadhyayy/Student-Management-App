@@ -19,7 +19,8 @@ import androidx.compose.ui.unit.sp
 import com.example.studentmanagementapp.model.Student
 
 @Composable
-fun StudentCard(student: Student) {
+fun StudentCard(student: Student,
+                onDeleteClick : (Student) -> Unit ){
 
     Card(modifier = Modifier
         .fillMaxWidth()
@@ -59,7 +60,9 @@ fun StudentCard(student: Student) {
                 Spacer(Modifier.width(10.dp))
 
                 Button(
-                    onClick = {}
+                    onClick = {
+                        onDeleteClick(student)
+                    }
                 ) {
                     Text("Delete")
                 }

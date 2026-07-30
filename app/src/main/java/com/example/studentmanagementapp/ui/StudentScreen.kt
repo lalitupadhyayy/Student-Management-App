@@ -84,7 +84,10 @@ fun StudentScreen(
         LazyColumn {
             items(students) { student ->
 
-                StudentCard(student)
+                StudentCard(student = student,
+                    onDeleteClick = {
+                        viewModel.deleteStudent(it)
+                    })
 
             }
         }
