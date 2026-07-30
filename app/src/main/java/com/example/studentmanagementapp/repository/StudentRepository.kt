@@ -7,15 +7,15 @@ import kotlinx.coroutines.flow.Flow
 class StudentRepository(
     private val studentDao: StudentDao
 ) {
-    fun insertStudent(student: Student){
+    suspend fun insertStudent(student: Student){
         studentDao.insertStudent(student)
     }
 
-    fun deleteStudent(student: Student){
+    suspend fun deleteStudent(student: Student){
         studentDao.deleteStudent(student)
     }
 
-    fun updateStudent(student: Student){
+    suspend fun updateStudent(student: Student){
         studentDao.updateStudent(student)
     }
 

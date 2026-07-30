@@ -28,7 +28,7 @@ abstract class StudentDatabase : RoomDatabase() {
                             StudentDatabase::class.java,
                             "Student_Database"
                         )
-                           .allowMainThreadQueries()
+//                           .allowMainThreadQueries()  // uses only when function perform on main thread.. bad practice(it can freeze the ui)
                            .build()
                     }
                 }

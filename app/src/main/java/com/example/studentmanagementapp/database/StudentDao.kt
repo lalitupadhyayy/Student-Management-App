@@ -12,13 +12,13 @@ import kotlinx.coroutines.flow.Flow
 interface StudentDao {
 
     @Insert
-    fun insertStudent(student: Student)
+    suspend fun insertStudent(student: Student)
 
     @Delete
-    fun deleteStudent(student: Student)
+    suspend fun deleteStudent(student: Student)
 
     @Update
-    fun updateStudent(student: Student)
+    suspend fun updateStudent(student: Student)
 
     @Query("SELECT * FROM Student")
     fun getAllStudents(): Flow<List<Student>>
